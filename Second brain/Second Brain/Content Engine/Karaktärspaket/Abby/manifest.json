@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "enabled": false,
+  "status": "draft",
+  "persona_file": "Paket.md",
+  "references": {
+    "images": [],
+    "rights_verified": false
+  },
+  "voice": {
+    "provider": null,
+    "voice_id": null,
+    "sample_asset_id": null,
+    "rights_verified": false,
+    "settings": null,
+    "description": "Warm medium-high adult American English; playful, conversational, brief pauses."
+  },
+  "schedule": {
+    "enabled": false,
+    "timezone": "Europe/Stockholm",
+    "local_time": null,
+    "target_per_day": null,
+    "catchup_policy": "skip_missed_slots"
+  },
+  "budget": {
+    "currency": "SEK",
+    "max_per_job": null,
+    "max_per_day": null,
+    "max_per_month": null,
+    "max_experiment_total": null,
+    "approved_by": null,
+    "approved_at": null
+  },
+  "continuity": {
+    "history_scope": "abby",
+    "recent_items_limit": 30,
+    "separate_produced_approved_published": true,
+    "canonical_changes_require_operator": true
+  },
+  "activation": {
+    "approved_by": null,
+    "approved_at": null,
+    "blockers": [
+      "approved_visual_references_missing",
+      "approved_voice_missing",
+      "rights_unverified",
+      "budget_limits_missing",
+      "schedule_time_missing",
+      "tested_model_policy_missing",
+      "operator_approval_missing",
+      "age_source_conflict_pending"
+    ]
+  },
+  "id": "abby",
+  "identity": {
+    "name": "Abby Marlow",
+    "fictional_adult": true,
+    "language": "en-US",
+    "exact_age": null
+  },
+  "source_documents": [
+    "../../../Karaktärer/Abby Marlow/Basic Info.md",
+    "../../../Karaktärer/Abby Marlow/Voice.md"
+  ],
+  "agent_profiles": {
+    "researcher": "researcher/influencer@0.1.0",
+    "planner": "planner/influencer@0.1.0",
+    "writer": "writer/influencer@0.1.0",
+    "director": "director/influencer@0.1.0",
+    "production_planner": "production_planner/influencer@0.1.0",
+    "reviewer": "reviewer/influencer@0.1.0",
+    "packager": "packager/influencer@0.1.0"
+  },
+  "workflow": "influencer_voiceover_v1@0.1.0",
+  "production_profile": "vertical_short_v1@0.1.0"
+}

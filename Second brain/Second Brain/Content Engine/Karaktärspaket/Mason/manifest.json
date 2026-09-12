@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "enabled": false,
+  "status": "draft",
+  "persona_file": "Paket.md",
+  "references": {
+    "images": [],
+    "rights_verified": false
+  },
+  "voice": {
+    "provider": null,
+    "voice_id": null,
+    "sample_asset_id": null,
+    "rights_verified": false,
+    "settings": null,
+    "description": "Adult medium-low American English; clear, confident, 140–165 words/minute as test range."
+  },
+  "schedule": {
+    "enabled": false,
+    "timezone": "Europe/Stockholm",
+    "local_time": null,
+    "target_per_day": null,
+    "catchup_policy": "skip_missed_slots"
+  },
+  "budget": {
+    "currency": "SEK",
+    "max_per_job": null,
+    "max_per_day": null,
+    "max_per_month": null,
+    "max_experiment_total": null,
+    "approved_by": null,
+    "approved_at": null
+  },
+  "continuity": {
+    "history_scope": "mason",
+    "recent_items_limit": 30,
+    "separate_produced_approved_published": true,
+    "canonical_changes_require_operator": true
+  },
+  "activation": {
+    "approved_by": null,
+    "approved_at": null,
+    "blockers": [
+      "approved_visual_references_missing",
+      "approved_voice_missing",
+      "rights_unverified",
+      "budget_limits_missing",
+      "schedule_time_missing",
+      "tested_model_policy_missing",
+      "operator_approval_missing",
+      "name_source_conflict_pending",
+      "voice_source_conflict_pending",
+      "education_profiles_and_workflow_not_defined"
+    ]
+  },
+  "id": "mason",
+  "identity": {
+    "name": "Mason Hartley",
+    "fictional_adult": true,
+    "language": "en-US",
+    "exact_age": 25
+  },
+  "source_documents": [
+    "../../../Karaktärer/Mason Hartley/Mason Hartley.md",
+    "../../../Karaktärer/Mason Hartley/Voice.md"
+  ],
+  "agent_profiles": {
+    "researcher": "researcher/education@0.1.0",
+    "planner": "planner/education@0.1.0",
+    "writer": "writer/education@0.1.0",
+    "director": "director/education@0.1.0",
+    "production_planner": "production_planner/education@0.1.0",
+    "reviewer": "reviewer/education@0.1.0",
+    "packager": "packager/education@0.1.0"
+  },
+  "workflow": "education_demo_v1@0.1.0",
+  "production_profile": "education_short_v1@0.1.0"
+}
