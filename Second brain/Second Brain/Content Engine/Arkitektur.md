@@ -1,6 +1,6 @@
 # Arkitektur
 
-[Projektstart](Start.md) · Alla teknikval nedan är rekommendationer, inte beställda tjänster.
+[Projektstart](Start.md) · B6: egna öppna vikter via ComfyUI i container på hyrd GPU är förstahandsspåret. Övriga teknikdetaljer är rekommendationer; inga tjänster är beställda.
 
 ## Komponenter och informationsutbyte
 
@@ -50,12 +50,22 @@ Agenten föreslår. Kod validerar typer, tillåtna assets, budget, kapabilitet, 
 | FFmpeg och ffprobe | Kontrollerad montering och maskinläsbar mediakontroll; inga AI-anrop för enkel klippning | CPU-montering blir mätt flaskhals; flytta monteringsworker separat |
 | Privat S3-kompatibel objektlagring, R2 som kandidat | Media skiljs från databasen; adapter gör senare lagringsbyte möjligt | Åtkomstmönster, region, retention eller uppmätt totalkostnad talar för annat |
 | Docker Compose på en CPU-VPS | Få tjänster för en operatör, enkel återställbar drift | Faktiskt behov av hög tillgänglighet; Kubernetes ingår inte som standard |
-| Färdigt bild-/video-API som första testspår | Mindre GPU-drift att bygga innan kvaliteten är bevisad | ComfyUI på tillfällig GPU ger bättre uppmätt kostnad/kvalitet inklusive start och underhåll |
+| Öppna bild-/videovikter via ComfyUI i container på hyrd GPU | B6: kontroll, möjlighet till låg kostnad/hög kvalitet och lärande om modeller, containers och drift. R: Qwen-Image-Edit-2511 → Wan2.2-TI2V-5B, se verifiering i Utvärdering | Om egna kvalitets-/kostnadsmätningar motiverar det provas större modell eller färdigt API genom samma adaptergräns |
 | LLM- och TTS-adaptrar | Lås testad modell per uppgift; ElevenLabs är en röstkandidat, ingen vald röst | Naturlighet, rättigheter, pris och felutfall avgör; inga modellnamn förifylls som produktionsvinnare |
 
 PostgreSQL dokumenterar `FOR UPDATE SKIP LOCKED` som användbart för köliknande åtkomst, med en inkonsistent vy som inte passar allmänna läsningar. Vår lease- och budgetdesign är en egen rekommendation, inte en färdig köfunktion. [PostgreSQL SELECT](https://www.postgresql.org/docs/current/sql-select.html), läst 2026-09-12.
 
 LangGraph dokumenterar checkpoints för sparat graf­tillstånd. Det ersätter inte skyddet kring externa beställningar; vår databas för ProviderRequest och kostnadsbok förblir auktoritativ. [LangGraph persistence](https://docs.langchain.com/oss/python/langgraph/persistence), läst 2026-09-12. ffprobe kan ge strukturerad media- och ströminformation; vilka kontroller som räcker måste provas på våra exporter. [ffprobe](https://ffmpeg.org/ffprobe.html), läst 2026-09-12.
+
+## GPU-spåret: interaktivt prov före automatisering
+
+Första experimentet ägs av [Utvärdering](Utvärdering.md): officiella modell-/licenskällor, referensfiler, GPU-dimensionering, kostnadstak och testkort. Kommersiell användning av de föreslagna basmodellerna stöds av deras Apache-2.0-licenser; den faktiska imagen och dess beroenden kontrolleras separat. Lägre kostnad per användbart klipp är en hypotes som omfattar även start, modellinläsning, idle och fel.
+
+E1 använder en tillfällig on-demand GPU-Pod med container och interaktiv ComfyUI. När scenkvaliteten är visad låses den fungerande miljön som image-digest, modellmanifest och exporterade UI-/API-workflows, och provas från ren start. E1 kräver ingen serverless-handler, full jobbkö eller CPU-server. Den externa GPU-container som piloten använder utvecklas senare till automatiskt anropad medieworker.
+
+Den framtida ComfyUI-adaptern tar GenerationPlan och tillåtna assets, mappar parametrar till ett versionslåst API-workflow, journalför beställning, följer promptstatus och returnerar Asset/CostEntry. Hyrplattformens resurs-ID och ComfyUI:s prompt-ID hålls isär. Lagring utanför containern och kostnadsjournal behövs för resume. Färdiga medie-API-adaptrar behålls som jämförelse eller alternativ. Text och TTS har separata policies; ComfyUI-spåret kräver inte att allt körs på samma GPU.
+
+Modellbyte innebär en kandidatversion av workflow, modellmanifest och vid behov adapter. Skillnader i VAE, encoder, noder, VRAM, referensformat och längd kan kräva ändringar och nya tester. Jobb behåller låst release, och rollback gäller nya jobb. Budget- och domänkontrakt återanvänds där de passar, men vi lovar inte friktionsfria byten.
 
 ## Datamodell och invarianta regler
 

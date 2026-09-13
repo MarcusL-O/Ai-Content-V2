@@ -2,24 +2,26 @@
 
 Uppdaterad 2026-09-13 · [Projektstart](Start.md) · [Arbetssätt](../../../Marcus-och-Codex-Arbetssatt.md)
 
-## Nuläge
+## Nuläge och beslut
 
-E0 är färdig som dokumentationsunderlag och planens riktning är godkänd. De fyra beställda förbättringarna är genomförda: karaktärsoberoende influencer-instruktioner, tidigare CE-10, arbetssättslänk/status och B4 med bevarad historik. Ingen motor, teknikprototyp eller verklig modellutvärdering har implementerats eller körts. Paketen är inaktiva.
+Planriktningen är godkänd. Nytt **B6** prioriterar öppna bild-/videovikter i egen ComfyUI-container på hyrd GPU. Kontroll, kvalitet och lärande är mål; billigare produktion ska mätas. API-adaptrar behålls och text/röst väljs separat. Tidigare API-först-rekommendation är ersatt med bevarad historik i [Beslut och frågor](Beslut%20och%20frågor.md).
 
-Influencer-profilerna är 0.1.1; Abby-paketets version/hänvisningar har följt med. Persona och röstunderlag har inte ändrats. CE-10 är en begränsad planerad prototyp efter CE-05 och före CE-06/CE-09; den ska motivera ett val med simulerat trestegsflöde och högst en arbetsdag.
+**CE-01:s kostnadsfria förberedelse är utförd** i befintlig [Utvärdering](Utvärdering.md): Qwen-Image-Edit-2511 → Wan2.2-TI2V-5B, officiella licens-/ComfyUI-/referenskällor, GPU-dimensionering, listpriser, konkreta filer/konton och T1–T3-testkort. Basmodellerna anger Apache-2.0 och medger avsedd kommersiell användning enligt villkoren. Hela runtime-miljön är ännu inte verifierad.
 
-## Beslut och blockerare
+R: A100 PCIe 80 GB för första sessionen, max fyra GPU-timmar, sex bild- och sex klippförsök inklusive omtag/återstartsprov, föreslaget totalt kassautflödestak 300 SEK. Ingen GPU, installation, containerbuild eller generering har startats. Inga nya testkostnader har uppstått. Karaktärspaket är fortsatt inaktiva och original/röstunderlag orörda.
 
-[Beslut och frågor](Beslut%20och%20frågor.md) äger beslutsdetaljerna. B4 återger nu både ursprungligt bevarande och senare auktoriserad rensning. Godkänd planriktning innebär inte godkända inköp eller start av implementation.
+## Blockerare före betalt prov
 
-Marcus hanterar röstunderlagen själv. Inför betald produktion behövs fortfarande dokumenterad budget, godkända referenser/röst och rättighetsunderlag samt fastställda testkriterier enligt CE-02/F1–F5. Dessa hindrar inte kostnadsfri testförberedelse. Ingen originaländring eller betalning ingår i nuvarande uppdrag.
+Marcus behöver godkänna pilotbudgeten och bildreferenser med rättighetsunderlag enligt CE-02. Referenslistan i Utvärdering anger framifrån, trekvart, helkropp och arbetskopienamn. Marcus hanterar röstunderlaget själv; det behövs först för voiceover-/helhetsprovet, inte första ljudlösa rörelsetestet. RunPod-konto/betalning och publik SSH-nyckel ordnas av Marcus inför ett uttryckligen godkänt startuppdrag.
 
-## Verifiering och Git
-
-Lokal länkkontroll, profilreferenser, JSON-syntax och backloggens beroendegraf har kontrollerats efter ändringarna. Alla beroende-ID finns, inga cykler finns och CE-10 föregår beroende implementation. Karaktärsoriginalens filhashar är oförändrade. Ingen runtime- eller modellkvalitet har testats.
-
-Dokumentändringarna och denna statusfil är ännu inte committade. Vid uppdragets start fanns redan en raderad `Second brain/Content-Engine-Codex-Brief.md` och en ospårad `Content-Engine-Codex-Brief.md` i reporoten; flytten är bevarad och projektets länkar har anpassats. Senaste befintliga commit vid kontroll: `1144521` (`info`); den innehåller inte denna revision. Kontrollera alltid aktuell Git-status vid återupptagning.
+Codex återstående startkontroller: exakt container-digest, ComfyUI-/modellrevisioner och filhashar, basimage-/beroendelicenser, faktisk GPU-tillgång och pris i vald konfiguration. Qwens exakta VRAM-krav för flödet saknar fast officiellt minimum; 80 GB är en rekommendation, peak-minne/tid mäts i piloten. Dokumenterat native-stöd är inte en genomförd kompatibilitetstest. Inga påhittade image-ID eller referenshashar fyller luckorna.
 
 ## Nästa uppgift
 
-**CE-01 – förregistrera experiment och verifiera kandidater**, efter ett nytt uppdrag att börja nästa etapp. Läs [Utvärdering](Utvärdering.md), [Workflows](Workflows.md) och CE-01 i [Roadmap och backlog](Roadmap%20och%20backlog.md). Leverera T1–T3-testbriefs, aktuella officiella kapabilitets-/pris-/villkorskällor och en kostnadsplan med maxförsök och synliga spärrar. Kontrollera att hela planerade experimentet ryms i det tak Marcus beslutar innan någon beställning görs. Röstunderlag tas emot från Marcus; de skapas eller ändras inte av Codex i denna uppgift.
+Granska pilotplanen i Utvärdering och hantera **CE-02** samt återstående CE-01-startkontroller. Därefter krävs ett uttryckligt uppdrag för **CE-03**: hyr tillfälligt, testa interaktivt och avbryt enligt taket. Vid godkänd kvalitet paketeras den fungerande miljön och provas från ren start inom kvarvarande eller nytt godkänt utrymme. Full serverless-/motordrift kommer senare. CE-10 ligger fortsatt före CE-06/CE-09 och avser workflow-/köprototyp, inte bildmodelltestet.
+
+## Verifiering och Git
+
+Officiella webbkällor avlästa 2026-09-13; källor och verifieringsgränser står vid respektive påstående i Utvärdering. Kontrollerat: 71 lokala länkar, 27 backlog-ID utan cykler och 7 oförändrade filer i de skyddade originalkatalogerna. Whitespace-kontrollen är utan anmärkning. Ingen uppmätt klippkvalitet, faktisk GPU-kostnad eller runtime-prestanda finns ännu.
+
+Senaste befintliga commit vid start: `96ce10c` (`update info`). Arbetskatalogen var ren vid start; denna planrevision är inte committad. Kontrollera Git-status inför återupptagning.

@@ -11,16 +11,18 @@
 | B3 | Beslutat med Marcus | Versionsstyrda agent-/karaktärs-/workflowprofiler, utbytbara leverantörer | Jobb låser profiler och modeller |
 | B4 | Beslutat med Marcus, reviderat 2026-09-13 | Planering och nya paket i innersta Second Brain; karaktärsoriginalen skyddas. Ersatta docs- och character-packs-utkast har efter etapp 0 rensats på Marcus uppdrag | Bevarandet av äldre utkast gällde dokumentationsetappen; senare rensning och ersättningskarta dokumenteras i Inventering och överlämning. Se historik nedan |
 | B5 | Beslutat med Marcus | Ingen kod, installation, betalning, deployment eller push under etapp 0 | Bara granskningsunderlag och konfigurationsutkast |
+| B6 | Beslutat med Marcus 2026-09-13 | Förstahandsspår: öppna bild-/videovikter i egen ComfyUI-container på hyrd GPU, interaktiv pilot före automatisering | Kontroll, kvalitet och lärande; billigare produktion ska mätas. API-adaptrar kvarstår, text/röst väljs separat. Inga inköp/installationer godkänns genom detta beslut |
 | R1 | Rekommendation | 15–30 s voiceover, 9:16, 1080p och låg rörelsekomplexitet | Kortare kvalitetsprov innan läppsynk/komplexa scener; se MVP |
 | R2 | Rekommendation | Python/FastAPI/Pydantic, PostgreSQL, CPU-VPS/Compose, FFmpeg, privat objektlagring | Projektskäl och byteskriterier i Arkitektur; gamla docs angav felaktigt vissa val som accepterade |
 | R3 | Rekommendation | Explicit workflow först, LangGraph som begränsad prototypkandidat | Ett auktoritativt stegtillstånd förenklar återhämtning; avsteg från briefens preliminära LangGraph-val |
-| R4 | Rekommendation | Testa färdigt medie-API mot GPU/ComfyUI eller andra API om GPU-spåret inte ryms | Inget ComfyUI-/RunPod-tvång innan uppmätt nytta |
+| R4 | Rekommendation, reviderad enligt B6 | Qwen-Image-Edit-2511 och Wan2.2-TI2V-5B i tillfällig GPU-Pod; API som separat jämförelse/alternativ | Basmodellernas officiella licenser och stöd kontrollerade i Utvärdering. Fungerande miljö paketeras efter kvalitetsprov; runtime ännu overifierad |
 | R5 | Rekommendation | Valv → validerad oföränderlig export → server | Ett redigerbart konfigurationsoriginal; inga samtidiga manuella serverkopior |
 | R6 | Rekommendation | Konservativ jobbram, max ett betalt anrop samtidigt initialt, stoppa okänt utfall | Begripligt kostnadsskydd med låg produktionsvolym |
 | R7 | Rekommendation | en-US för båda paket; Mason som arbetsnamn; oklar exakt Abby-ålder lämnas null | Följer huvudprofiler utan att dölja källkonflikter |
 | A1 | Antagande att testa | Kvalitet kan bli tillräcklig utan LoRA och dedikerad GPU | Referens- och rörelseprov avgör |
 | A2 | Antagande att testa | Cirka 100 kr per godkänd 20 s video | Inga egna mätningar; alla försök räknas |
 | A3 | Antagande att testa | 8/10 godkända jobb och median högst 5 manuella minuter räcker för första MVP | Marcus kalibrerar acceptans före provdrift |
+| A5 | Antagande att testa | Egen GPU-drift kan ge lägre kostnad per godkänt klipp | Räkna start, laddning, idle, misslyckanden och arbete; utan API-jämförelse finns inget belägg för relativ besparing |
 | A4 | Antagande att testa | Publiktest på cirka 30 videor ger användbar riktning | Ingen garanti om räckvidd, affiliate eller intäkt |
 
 B-besluten här återger användarens uttryckliga underlag, inte en ny muntlig överenskommelse. Förändringar får datum, motivering och ersatt besluts-ID; tidigare beslut skrivs inte om utan spår.
@@ -31,13 +33,15 @@ B-besluten här återger användarens uttryckliga underlag, inte en ny muntlig �
 - **B4, senare användaruppdrag och utförd rensning:** Marcus bad efter dokumentationsetappen att ersatta felaktiga filer skulle tas bort. De 17 äldre utkasten i docs och character-packs raderades efter kontroll; karaktärsoriginalen behölls. Se [Inventering och överlämning](Inventering%20och%20överlämning.md). Revideringen ovan registrerades 2026-09-13 för att återge detta befintliga beslut, inte besluta om ytterligare radering.
 - **Planens riktning, 2026-09-13:** Marcus godkände riktningen och beställde karaktärsoberoende influencer-instruktioner, tidigare CE-10, länk till arbetssätt och STATUS.md samt rättning av B4. Det godkänner inte motorimplementation eller betalda tester. Marcus hanterar röstunderlagen själv; inga original ändras i denna revision. Teknikrekommendationer och ännu obeslutade belopp blir inte automatiskt slutligt godkända genom riktningsbeslutet.
 
+- **B6/R4, 2026-09-13:** Nytt uttryckligt teknikbeslut ersätter R4:s tidigare API-först-rekommendation. Tidigare R4 löd “Testa färdigt medie-API mot GPU/ComfyUI eller andra API om GPU-spåret inte ryms”. Nu prioriteras egen ComfyUI-container med öppna vikter. Kostnadsfri CE-01-förberedelse är beställd; betald pilot, installation och motorbygge är inte beställda.
+
 ## Frågor som kräver Marcus beslut
 
 Frågorna blockerar inte denna dokumentationsetapp. De lämnas samlade för granskning, med föreslagen väg framåt.
 
 | ID | Fråga och rekommenderat svar | När det behövs | Konsekvens om obesvarat |
 |---|---|---|---|
-| F1 | Godkänn eller ändra experimenttaket 1 500 kr. R: taket bör avse verkligt kassautflöde inklusive moms/avgifter och reserverade okända anrop | Före första betalda referens-/modelltest | Endast kostnadsfri testförberedelse |
+| F1 | Godkänn eller ändra det nya begränsade pilotförslaget 300 kr i Utvärdering. Tidigare 1 500 kr kvarstår som historiskt större experimentförslag, inte tillgänglig budget. R: taket bör avse verkligt kassautflöde inklusive moms/avgifter och reserverade okända anrop | Före första betalda referens-/modelltest | Endast kostnadsfri testförberedelse |
 | F2 | Vilket ansikte och vilken röst godkänns för Abby, med vilket rättighetsunderlag? R: en originalidentitet, härledda vinklar och separat ljudprov | Före berörd medieproduktion | Paketet förblir inaktivt; inga fejkade asset-/voice-ID |
 | F3 | Godkänn 15–30 s voiceover som första format och rubric/8-av-10-mål. R: börja där och utvärdera synligt tal separat | Före testdesignen fryses och senare MVP-prov | R/A-gränser kvarstår som förslag |
 | F4 | Ska Abby ha fryst 25-årsålder eller följa födelsedatum 2000-05-05? R: fryst fiktiv vuxen ålder, utan offentlig födelsedag | Före paketaktivering/offentlig åldersuppgift | Ingen exakt åldersuppgift används |
@@ -67,4 +71,4 @@ Val av exakt text-, bild-, video- och röstmodell är en teknisk utvärderingsup
 
 Arkitektur och drift anger officiella dokumentationslänkar och läsdatum 2026-09-12 för PostgreSQL, LangGraph, FastAPI, Pydantic, ffprobe, Docker, RunPod och R2. Dessa belägger verktygens dokumenterade egenskaper; våra teknikval och gränsvärden är egna rekommendationer. Vi har inte installerat eller kört dessa komponenter som del av motorn.
 
-Exakta modellkapabiliteter, leverantörspriser, kommersiella licenser, plattformsregler och lokalt utvecklingsstöd är ännu inte verifierade för en vald produktionskombination. De ska inte läsas som löften i denna plan. E1 gör officiell verifiering före test; E6 kontrollerar aktuella publiceringskrav före uppladdning. Äldre länkar och forskningspåståenden i karaktärsoriginal har lästs som källinnehåll men har inte antagits vara validerade affärsresultat.
+CE-01 har nu officiellt källstöd daterat 2026-09-13 för föreslagna modelllicenser, referensstöd, native ComfyUI-flöden och listpriser i Utvärdering. Exakt containerkompatibilitet, peak-minne/prestanda, aktuell kontospecifik GPU-tillgång/pris och plattformsregler återstår att verifiera inför respektive användning. De ska inte läsas som löften i denna plan. E1 gör officiell verifiering före test; E6 kontrollerar aktuella publiceringskrav före uppladdning. Äldre länkar och forskningspåståenden i karaktärsoriginal har lästs som källinnehåll men har inte antagits vara validerade affärsresultat.

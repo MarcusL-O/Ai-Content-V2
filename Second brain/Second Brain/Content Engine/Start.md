@@ -1,6 +1,6 @@
 # Content Engine
 
-Status 2026-09-13: planens riktning godkänd; avgränsade dokumentförbättringar genomförda. Ingen motor, modellutvärdering eller produktion är genomförd. Alla konfigurationsutkast är inaktiva.
+Status 2026-09-13: planens riktning godkänd; avgränsade dokumentförbättringar genomförda. Ingen motor, modellutvärdering eller produktion är genomförd. Alla konfigurationsutkast är inaktiva. CE-01:s kostnadsfria förberedelse finns i [Utvärdering](Utvärdering.md): öppna vikter via egen ComfyUI-container på hyrd GPU är förstahandsspåret enligt B6.
 
 Content Engine ska producera innehåll från research till ett nedladdningsbart videopaket, med stabil karaktär, mätbar kvalitet och begränsad kostnad. Marcus väljer paket, format och budget, granskar leveransen och publicerar själv. Första tillämpningen är Abby med korta lifestyle-/travel-videor och voiceover.
 

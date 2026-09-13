@@ -6,7 +6,7 @@
 
 En CPU-VPS kör administration, scheduler, worker, databas och lätt övervakning. Samma containerimage kan användas med olika processkommandon. Scheduler läser serverns aktiva release och skriver unika schemaluckor till databasen. Worker kan vänta på externa API:er utan lokal GPU. Marcus dator behövs för att redigera och exportera en ny konfiguration, inte för att genomföra redan aktiverade schemajobb.
 
-GPU-arbete körs via färdigt API eller en separat GPU-worker som startas vid behov. R: börja med max ett samtidigt betalt medieanrop, tillåt senare ökning efter budget- och avbrottstester. Om GPU-spåret används provas flexibla workers med minsta antal noll och definierad idle-timeout. Extern kötid, uppstart, bearbetning och idle loggas separat. Modeller och custom nodes får en låst testad kombination, inte okontrollerade nedladdningar vid varje start.
+B6: bild-/video-GPU körs i första hand med öppna vikter i egen ComfyUI-container på hyrd GPU; färdigt API kvarstår som alternativ. E1 börjar med en övervakad interaktiv on-demand Pod enligt Utvärdering, före automatisk GPU-worker och serverless. R: börja med max ett samtidigt betalt medieanrop, tillåt senare ökning efter budget- och avbrottstester. Om GPU-spåret används provas flexibla workers med minsta antal noll och definierad idle-timeout. Extern kötid, uppstart, bearbetning och idle loggas separat. Modeller och custom nodes får en låst testad kombination, inte okontrollerade nedladdningar vid varje start.
 
 Docker paketerar processer och beroenden och Compose beskriver flera tjänster. Beständiga data måste placeras i volymer eller extern lagring. Docker garanterar inte kvalitet, backup, kostnadsfri inaktivitet eller GPU-nedskalning; det senare måste ordnas hos driftleverantören. [Docker overview](https://docs.docker.com/get-started/docker-overview/), läst 2026-09-12. Vår föreslagna driftsammansättning är inte testad på Marcus dator; macOS-/Python-/Docker-stöd verifieras före eventuell installation. Ingen lokal CUDA krävs i planen.
 
@@ -57,6 +57,10 @@ R: daglig krypterad databasbackup till separat lagringsplats, 7 dagliga och 4 ve
 R: underkända råförsök 30 dagar, godkända leveranser/master 90 dagar eller längre enligt Marcus beslut. Referenser och kostnads-/proveniensmetadata får inte raderas med en generell råmediaregel. Inför retention först efter beslut och återställningstest; radera inget i denna etapp.
 
 Återställ först till isolerad miljö med scheduler av och alla betalda adaptrar spärrade. Återläs databas, releasehashar och nödvändiga assets. Kontrollera checksummor och referenser. Avstäm alla externa anrop efter backupens tidpunkt innan kö återaktiveras: en gammal databas kan annars sakna en redan debiterad beställning. Importera providerlogg där möjligt; olösta intervall lämnas blockerade. Mät faktisk tid och redovisa dataförlust mot RPO. Testa återställning före MVP och efter större lagrings-/databasändring.
+
+## Aktuell CE-01-pilot
+
+Det nya begränsade förslaget är 300 SEK total utgift, högst fyra GPU-timmar och max sex bild-/sex klippförsök enligt [Utvärdering](Utvärdering.md), som äger aktuella listpriser, kostnadsberäkning och stoppregler. Beloppet är ännu inte godkänt. De större beloppen nedan bevaras som historiska planeringsscenarier. Interaktiv hyrtid omfattar laddning, idle och felsökning; den kan inte bokföras som bara modellinferens. Piloten använder övervakad stoppgräns, inte en färdig automatisk budgetkontroll.
 
 ## Kostnadsscenarier från underlaget
 

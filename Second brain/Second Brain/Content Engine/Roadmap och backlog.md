@@ -7,7 +7,7 @@
 | Etapp | Resultat och grind |
 |---|---|
 | E0 Dokumentation | Sammanhängande plan och inaktiva paket, källkonflikter synliga, original bevarade; riktning godkänd, detaljbeslut inför test kvarstår |
-| E1 Begränsat produktionstest | Godkända referenser/budget, jämförda vägar och kompletta pilotvideor; välj första verifierade format eller avbryt/omforma |
+| E1 Begränsat produktionstest | ComfyUI på tillfällig hyrd GPU: godkända referenser/budget → interaktivt bild-/rörelseprov → låst container och rent omstartsprov vid godkänd kvalitet. API-jämförelse och full voiceoverpilot vid separat budget/underlag |
 | E2 Motorns grund | Offline-kontrakt och simulerade leverantörer, kö, budget och bevisad resume; inga produktionsinköp behövs för grundtesten |
 | E3 Hela kedjan | Verkliga testvinnare bakom adaptrar, research till färdigt paket och enkel jobbvy |
 | E4 Schemalagd drift | CPU-server, schema, privata media, backup och återställningsprov |
@@ -15,17 +15,13 @@
 | E6 Publiktest | Marcus publicerar, faktisk statistik analyseras; ingen självpåverkande profiländring |
 | E7 Vidareutveckling | Mason, reklam, läppsynk och andra format provas separat; Jarvis använder motorns befintliga API |
 
-E1 är rekommenderad nästa etapp. Börja med uppgift CE-01 nedan som kostnadsfri förberedelse; pengar används först när konkreta referenser, kandidatkostnader och testtak är beslutade. Dokumentationsuppdraget i sig ger inte tillstånd att genomföra E1–E7.
+Kostnadsfri CE-01-förberedelse är utförd på Marcus uppdrag. Nästa grind är CE-02 samt återstående startkontroller i CE-01; inga hyrda resurser, installationer eller betalda försök är beställda. B6 prioriterar öppna vikter i egen ComfyUI-container. Detaljerna i Utvärdering är experimentets enda testplan.
 
-## Nästa implementationsuppgift – CE-01 i detalj
+## CE-01 – konkret förberedelse och återstående startkontroll
 
-Syfte: kunna genomföra ett begränsat jämförande test utan att först bygga motorn. Läs [Utvärdering](Utvärdering.md), [Abby](Karaktärspaket/Abby/Paket.md), [Workflows](Workflows.md) och F1–F4 i [Beslut och frågor](Beslut%20och%20frågor.md).
+[Utvärdering](Utvärdering.md) innehåller nu modellkombination, officiell licens-/kapabilitetsverifiering, filnamn, konton, GPU-inställningar, T1–T3, max sex bildförsök och sex videoförsök samt föreslaget tak 300 kr. Inga referensassets, miljöversioner eller priser får antas godkända enbart för att planen finns.
 
-Leverera en förregistrerad experimentbeskrivning i valvet med T1–T3, exakt taltext, kandidat A/B, officiella capability-/pris-/villkorskällor och datum, kostnadsövre gräns per beställning samt total worst-case för föreslaget antal försök. Lägg fram ett granskningsbart referensurval om Marcus redan har godkända assets; om referenser saknas ska skapandet beskrivas som separat budgeterad del av experimentet. Påhittade referenser får inte göra readiness grön.
-
-Om Marcus samtidigt ber om kodförberedelse för testet, skapa utanför valvet en minimal offline testharness med manifestvalidering och simulerad adapter; den är inte början på en full backend. Planerad kommandoyta är “validera experiment”, “visa kostnadsplan”, “kör ett uttryckligt test-ID” och “sammanställ alla försök”. Ingen nätverks-/betalåtkomst i standardläget. Exakta CLI-namn bestäms i implementationen, dessa är funktionskrav.
-
-Acceptans: varje planerat betalt anrop har en dokumenterad kapabilitet, prisbas, maxförsök och kostnadsram; alla luckor syns som spärrar; två spår använder samma brief/referenser och rubric; summan inklusive omtag/reserv ryms inom det tak Marcus senare godkänner. Om det inte ryms, föreslå ett mindre experiment innan något köps. Denna uppgift ska inte sluta i installation av ComfyUI eller VPS av slentrian.
+Före en senare auktoriserad session ska Codex registrera verkliga referenshashar, exakt basimage-digest/ComfyUI-version och modellrevisioner, kontrollera image-/beroendelicenser och faktisk Pod-prisbild. Marcus ordnar referenser, röstunderlag och budget enligt CE-02. Kompatibilitet/VRAM mäts i CE-03; en källa får inte märkas tested utan körningsrapport. Kvalitetsprov föregår full serverless-drift. Ingen offline harness eller motorimplementation ingår i nuvarande uppdrag.
 
 E2:s arbetsordning är CE-05 → CE-10 → CE-06 → CE-07 → CE-08 → CE-09. CE-10 fattar teknikbeslutet; senare uppgifter implementerar och verifierar det fullt ut.
 
@@ -43,11 +39,11 @@ Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition
 
 ### CE-01 · E1 · Förregistrera experiment och verifiera kandidater
 
-- **Prioritet/status:** P0 · Planerad.
+- **Prioritet/status:** P0 · Kostnadsfri förberedelse klar; startkontroller av exakta filer/image och kontospecifikt pris återstår.
 - **Syfte:** Testa rätt sak inom ram.
 - **Beroenden:** CE-00.
-- **Konkret leverans:** Testbriefs T1–T3, officiellt capability/pris/rättighetsblad, kostnadsplan och vid separat koduppdrag offline harness.
-- **Acceptanskriterium:** Detaljkraven ovan uppfyllda; saknade behörigheter och referenser blockerar riktig körning.
+- **Konkret leverans:** Befintlig Utvärdering: T1–T3, Qwen/Wan-licenser och referensstöd, GPU-/kostnadsblad, fil-/kontolista och interaktiv körplan; inga installationer.
+- **Acceptanskriterium:** Dokumenterat stöd skiljs från eget test; återstående startkontroller är synliga och verifieras före GPU-start. Billigare produktion påstås inte utan mätning.
 
 ### CE-02 · E1 · Godkänn referensidentitet, röst, rubric och testtak
 
@@ -55,15 +51,15 @@ Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition
 - **Syfte:** Förhindra test mot oklar målbild.
 - **Beroenden:** CE-01; F1–F4.
 - **Konkret leverans:** Beslutslogg, tillåtna bild-/röstassets och rättighetsproveniens.
-- **Acceptanskriterium:** Verkliga asset-ID/hashar finns; testtak gäller definierat kassautflöde; inga påhittade voice-ID.
+- **Acceptanskriterium:** Godkända bildkopior med rättigheter/hashar och pilotens kassautflödestak finns. Marcus hanterar rösten; ljudlös del kan provas separat men full voiceovergrind kvarstår.
 
-### CE-03 · E1 · Kör begränsad modelljämförelse
+### CE-03 · E1 · Kör interaktiv ComfyUI-pilot och paketera godkänd miljö
 
 - **Prioritet/status:** P0 · Planerad.
 - **Syfte:** Mät kvalitet och alla försök.
 - **Beroenden:** CE-02.
-- **Konkret leverans:** A/B-scenresultat, två kompletta pilotvideor om ramen räcker, kostnads-/minutrapport.
-- **Acceptanskriterium:** Samma brief/rubric, alla misslyckanden räknade, ingen överskriden godkänd beställningsram; ofullständig jämförelse märks.
+- **Konkret leverans:** T1–T3-bild/klipp, sessionskostnad inklusive start/laddning/fel och Marcus bedömning. Vid godkänd kvalitet: låst image/modellmanifest, UI-/API-workflow och rent omstartsprov inom tillåten ram. Helhetsexport med befintliga klipp när tre scener passerat; API-jämförelse separat budgeterad.
+- **Acceptanskriterium:** Högst sex bild- och sex klippförsök inklusive omstartsprov, fyra GPU-timmar och godkänt kostnadstak; minst två av tre scener godkända för pilotmålet. Tre krävs för helhetsprov. Filer exporteras före terminering. Ingen serverless-plattform krävs; avsaknad av ljud/API-jämförelse markeras.
 
 ### CE-04 · E1 · Välj verifierat första format och model policy
 
@@ -71,7 +67,7 @@ Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition
 - **Syfte:** Undvik stort bygge runt dåligt material.
 - **Beroenden:** CE-03.
 - **Konkret leverans:** Marcus kvalitetsbeslut och låsta kandidatversioner eller omformad testplan.
-- **Acceptanskriterium:** Minst komplett pilot bedömd, kostnadssäkerhet och begränsningar redovisade; ingen vinnare på leverantörsreklam.
+- **Acceptanskriterium:** Ljud-/voiceoverpilot måste vara bedömd före motorbygge; ett ljudlöst rörelseprov räcker inte. Miljön återstartad rent, kostnad och begränsningar redovisade; inget påstående om API-besparing utan jämförelse.
 
 ### CE-05 · E2 · Implementera domänkontrakt och konfigurationsexport
 
@@ -128,7 +124,7 @@ Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition
 - **Prioritet/status:** P0 · Planerad.
 - **Syfte:** Koppla verklig produktion till säkra kontrakt.
 - **Beroenden:** CE-04, CE-08, CE-10.
-- **Konkret leverans:** Adapters med capabilities, price snapshot, submit/status/cancel där stödd.
+- **Konkret leverans:** ComfyUI-adapter för låst container/API-workflow, prompt-ID/status, resurskostnad och assets; färdiga API-adaptrar kan anslutas som alternativ. Capabilities, price snapshot och cancel där stödd.
 - **Acceptanskriterium:** Ogiltig längd/ratio avvisas före nätverk; betalda integrationstester separat budgeterade; unknown hanteras enligt journalen.
 
 ### CE-12 · E3 · Integrera research, manus och scenplan
