@@ -1,6 +1,6 @@
 # Content Engine
 
-Status: dokumentationsetapp, färdigskrivet granskningsunderlag 2026-09-12. Ingen motor, modellutvärdering eller produktion är genomförd. Alla konfigurationsutkast är inaktiva.
+Status 2026-09-13: planens riktning godkänd; avgränsade dokumentförbättringar genomförda. Ingen motor, modellutvärdering eller produktion är genomförd. Alla konfigurationsutkast är inaktiva.
 
 Content Engine ska producera innehåll från research till ett nedladdningsbart videopaket, med stabil karaktär, mätbar kvalitet och begränsad kostnad. Marcus väljer paket, format och budget, granskar leveransen och publicerar själv. Första tillämpningen är Abby med korta lifestyle-/travel-videor och voiceover.
 
@@ -8,6 +8,8 @@ Content Engine ska producera innehåll från research till ett nedladdningsbart 
 
 | Dokument | Frågan det besvarar |
 |---|---|
+| [Aktuell status](STATUS.md) | Var står projektet och vilken uppgift kommer härnäst? |
+| [Marcus och Codex – arbetssätt](../../../Marcus-och-Codex-Arbetssatt.md) | Hur samarbetar vi och lämnar över arbetet? |
 | [Vision och MVP](Vision%20och%20MVP.md) | Vad bygger vi och när är första releasen godkänd? |
 | [Arkitektur](Arkitektur.md) | Hur hänger komponenter, data och konfigurationsversioner ihop? |
 | [Agenter](Agenter.md) | Vad får varje produktionsroll göra och vilka instruktioner används? |
@@ -23,4 +25,4 @@ Content Engine ska producera innehåll från research till ett nedladdningsbart 
 
 **B – Beslutat med Marcus:** uttryckligen angivet i beställningen eller briefens beslutsdel. **R – Rekommendation:** ett reversibelt planeringsval av Codex. **A – Antagande att testa:** ingen verifierad egenskap eller uppnått resultat. **F – Marcus beslut krävs:** främst pengar, referensidentitet och slutligt kvalitetsgodkännande. Teknik och målvärden som inte uttryckligen är B ska läsas som R/A även där texten beskriver hur den framtida motorn ska fungera.
 
-Börja granskningen med MVP och beslut F1–F5. Nästa föreslagna genomförande är ett begränsat produktionstest enligt E1 i backloggen, med kostnadsfri förberedelse före eventuella inköp. Bygg motorgrunden först när formatet har visat användbar kvalitet.
+Läs aktuell status inför fortsatt arbete. Detaljbesluten F1–F5 kvarstår där de ännu inte avgjorts; Marcus hanterar röstunderlagen själv. Nästa föreslagna genomförande är ett begränsat produktionstest enligt E1 i backloggen, med kostnadsfri förberedelse före eventuella inköp. Bygg motorgrunden först när formatet har visat användbar kvalitet.

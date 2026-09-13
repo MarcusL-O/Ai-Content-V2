@@ -1,6 +1,6 @@
 # Beslut, risker och öppna frågor
 
-[Projektstart](Start.md) · Beslutsregister 2026-09-12. B/R/A/F definieras på startsidan. Inget rekommenderat teknikval är ett godkänt inköp.
+[Projektstart](Start.md) · Beslutsregister, uppdaterat 2026-09-13. B/R/A/F definieras på startsidan. Inget rekommenderat teknikval är ett godkänt inköp.
 
 ## Beslut och rekommendationer
 
@@ -9,7 +9,7 @@
 | B1 | Beslutat med Marcus | Återanvändbar modulär motor från research till leverans | Beställningen/briefens beslutsdel; MVP är hela kedjan |
 | B2 | Beslutat med Marcus | Abby först, manuell publicering; Jarvis och kontointeraktion senare | Begränsar första releasen och undviker onödig integration |
 | B3 | Beslutat med Marcus | Versionsstyrda agent-/karaktärs-/workflowprofiler, utbytbara leverantörer | Jobb låser profiler och modeller |
-| B4 | Beslutat med Marcus | Planering och nya paket i innersta Second Brain, skyddade original och äldre utkast bevaras | Senaste beställningen ersätter briefens äldre placeringsförslag |
+| B4 | Beslutat med Marcus, reviderat 2026-09-13 | Planering och nya paket i innersta Second Brain; karaktärsoriginalen skyddas. Ersatta docs- och character-packs-utkast har efter etapp 0 rensats på Marcus uppdrag | Bevarandet av äldre utkast gällde dokumentationsetappen; senare rensning och ersättningskarta dokumenteras i Inventering och överlämning. Se historik nedan |
 | B5 | Beslutat med Marcus | Ingen kod, installation, betalning, deployment eller push under etapp 0 | Bara granskningsunderlag och konfigurationsutkast |
 | R1 | Rekommendation | 15–30 s voiceover, 9:16, 1080p och låg rörelsekomplexitet | Kortare kvalitetsprov innan läppsynk/komplexa scener; se MVP |
 | R2 | Rekommendation | Python/FastAPI/Pydantic, PostgreSQL, CPU-VPS/Compose, FFmpeg, privat objektlagring | Projektskäl och byteskriterier i Arkitektur; gamla docs angav felaktigt vissa val som accepterade |
@@ -24,6 +24,12 @@
 | A4 | Antagande att testa | Publiktest på cirka 30 videor ger användbar riktning | Ingen garanti om räckvidd, affiliate eller intäkt |
 
 B-besluten här återger användarens uttryckliga underlag, inte en ny muntlig överenskommelse. Förändringar får datum, motivering och ersatt besluts-ID; tidigare beslut skrivs inte om utan spår.
+
+## Beslutshistorik
+
+- **B4, ursprunglig lydelse 2026-09-12:** ”Planering och nya paket i innersta Second Brain, skyddade original och äldre utkast bevaras.” Bevarandet gällde den då pågående dokumentationsetappen.
+- **B4, senare användaruppdrag och utförd rensning:** Marcus bad efter dokumentationsetappen att ersatta felaktiga filer skulle tas bort. De 17 äldre utkasten i docs och character-packs raderades efter kontroll; karaktärsoriginalen behölls. Se [Inventering och överlämning](Inventering%20och%20överlämning.md). Revideringen ovan registrerades 2026-09-13 för att återge detta befintliga beslut, inte besluta om ytterligare radering.
+- **Planens riktning, 2026-09-13:** Marcus godkände riktningen och beställde karaktärsoberoende influencer-instruktioner, tidigare CE-10, länk till arbetssätt och STATUS.md samt rättning av B4. Det godkänner inte motorimplementation eller betalda tester. Marcus hanterar röstunderlagen själv; inga original ändras i denna revision. Teknikrekommendationer och ännu obeslutade belopp blir inte automatiskt slutligt godkända genom riktningsbeslutet.
 
 ## Frågor som kräver Marcus beslut
 

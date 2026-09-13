@@ -60,7 +60,7 @@ R: underkända råförsök 30 dagar, godkända leveranser/master 90 dagar eller 
 
 ## Kostnadsscenarier från underlaget
 
-Källa: [ursprunglig brief](../../Content-Engine-Codex-Brief.md), avsnitt 12, daterad 2026-09-12. Alla belopp nedan är bevarade planeringsantaganden, inga offerter eller benchmarks. Kalkylkurs 10 SEK/USD; före moms, valutapåslag, egen arbetstid och abonnemangsminimum. Faktiskt kassautflöde kan därför bli högre.
+Källa: [ursprunglig brief](../../../Content-Engine-Codex-Brief.md), avsnitt 12, daterad 2026-09-12. Alla belopp nedan är bevarade planeringsantaganden, inga offerter eller benchmarks. Kalkylkurs 10 SEK/USD; före moms, valutapåslag, egen arbetstid och abonnemangsminimum. Faktiskt kassautflöde kan därför bli högre.
 
 | Scenario | Antagande och tolkning |
 |---|---|

@@ -4,7 +4,7 @@
 
 ## Vad som fanns
 
-Det faktiska Obsidian-valvet är `Second brain/Second Brain`, med `.obsidian`, `Agents` och `Karaktärer`. Den nya sammanhängande planen ligger i valvets `Content Engine`. Ingen ytterligare Second Brain-mapp har skapats. Briefen ligger en nivå ovanför valvet: [Content-Engine-Codex-Brief](../../Content-Engine-Codex-Brief.md).
+Det faktiska Obsidian-valvet är `Second brain/Second Brain`, med `.obsidian`, `Agents` och `Karaktärer`. Den nya sammanhängande planen ligger i valvets `Content Engine`. Ingen ytterligare Second Brain-mapp har skapats. Briefen låg vid inventeringen en nivå ovanför valvet och finns nu i reporoten: [Content-Engine-Codex-Brief](../../../Content-Engine-Codex-Brief.md).
 
 Läst underlag: användarens fullständiga bilaga, hela briefen, samtliga 13 Markdownfiler i docs, fyra filer i äldre character-packs, fyra karaktärsoriginal och nio befintliga rollanteckningar under Agents. Den enda befintliga AGENTS.md som hittades i projektet var docs/AGENTS.md; den var en kort rollskiss och ingen fullständig rotinstruktion. Inga AGENTS.md hittades i kontrollerade överordnade kataloger. En ny rot-AGENTS.md dokumenterar arbetsomfattning och exakta skyddade originalvägar enligt briefen.
 

@@ -1,6 +1,8 @@
-# Abby – motoranpassat paket 0.1.0
+# Abby – motoranpassat paket 0.1.1
 
 [Karaktärspaket och schema](../../Karaktärspaket.md) · [Manifest](manifest.json) · Inaktivt utkast.
+
+Versionsnotering 2026-09-13: 0.1.1 uppdaterar endast hänvisningarna till influencer-profiler 0.1.1. Persona, referens- och röstunderlag är oförändrade; paketet är fortsatt inaktivt.
 
 ## Källstödd persona
 

@@ -1,12 +1,12 @@
 # Roadmap och konkret backlog
 
-[Projektstart](Start.md) · P0 = blockerar nästa etapp eller säker körning, P1 = krävs för etappens slut, P2 = senare utvidgning. Status “planerad” betyder inte implementerad. E0 är färdigskrivet granskningsunderlag, ännu inte godkänt av Marcus.
+[Projektstart](Start.md) · P0 = blockerar nästa etapp eller säker körning, P1 = krävs för etappens slut, P2 = senare utvidgning. Status “planerad” betyder inte implementerad. Planens riktning godkändes av Marcus 2026-09-13; de fyra avgränsade dokumentförbättringarna är genomförda. Det innebär inte godkänd testbudget eller start av implementation.
 
 ## Etapper och beslutspunkter
 
 | Etapp | Resultat och grind |
 |---|---|
-| E0 Dokumentation | Sammanhängande plan och inaktiva paket, källkonflikter synliga, original bevarade; Marcus granskar |
+| E0 Dokumentation | Sammanhängande plan och inaktiva paket, källkonflikter synliga, original bevarade; riktning godkänd, detaljbeslut inför test kvarstår |
 | E1 Begränsat produktionstest | Godkända referenser/budget, jämförda vägar och kompletta pilotvideor; välj första verifierade format eller avbryt/omforma |
 | E2 Motorns grund | Offline-kontrakt och simulerade leverantörer, kö, budget och bevisad resume; inga produktionsinköp behövs för grundtesten |
 | E3 Hela kedjan | Verkliga testvinnare bakom adaptrar, research till färdigt paket och enkel jobbvy |
@@ -27,13 +27,15 @@ Om Marcus samtidigt ber om kodförberedelse för testet, skapa utanför valvet e
 
 Acceptans: varje planerat betalt anrop har en dokumenterad kapabilitet, prisbas, maxförsök och kostnadsram; alla luckor syns som spärrar; två spår använder samma brief/referenser och rubric; summan inklusive omtag/reserv ryms inom det tak Marcus senare godkänner. Om det inte ryms, föreslå ett mindre experiment innan något köps. Denna uppgift ska inte sluta i installation av ComfyUI eller VPS av slentrian.
 
+E2:s arbetsordning är CE-05 → CE-10 → CE-06 → CE-07 → CE-08 → CE-09. CE-10 fattar teknikbeslutet; senare uppgifter implementerar och verifierar det fullt ut.
+
 ## Ordning och arbetskort
 
 Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition. Teknikdetaljer ägs av länkade huvuddokument, så backloggen ändrar inte kontrakten på egen hand.
 
 ### CE-00 · E0 · Konsolidera projektplanen
 
-- **Prioritet/status:** P0 · Skrivet, inväntar granskning.
+- **Prioritet/status:** P0 · Klar som dokumentationsunderlag; riktning godkänd 2026-09-13.
 - **Syfte:** Ge ett enda läsbart underlag.
 - **Beroenden:** Beställning och original.
 - **Konkret leverans:** Start, huvuddokument, inaktiva paket, ersättningskarta och granskningsprotokoll.
@@ -79,11 +81,21 @@ Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition
 - **Konkret leverans:** Schemas, draft/active-validering, oföränderlig releaseexport/import.
 - **Acceptanskriterium:** Null godtas i draft men blockerar active; samma version/annan hash avvisas; otillåtna paths/andra karaktärers assets blockeras.
 
+### CE-10 · E2 · Avgör workflow-/köval genom liten prototyp
+
+- **Prioritet/status:** P0 · Planerad; genomförs före CE-06 och CE-09. ID behålls för spårbarhet.
+- **Syfte:** Motivera workflow-/kövalet innan beroende implementation byggs.
+- **Beroenden:** CE-04, CE-05; dokumenterade kontrakt i Arkitektur och Workflows.
+- **Omfattning/genomförande:** Ett isolerat trestegsflöde: förbered simulerad beställning → invänta simulerat svar → spara resultat. Prova explicit workflow och högst ett motiverat alternativ (LangGraph). Prova minimal jobbclaim enligt köförslaget; bedöm högst en underhållen kökandidat om egen lease-/retrykod blir oproportionerlig. Återanvänd små fixtures och tillfälligt prototyptillstånd; CE-06 bygger sedan produktionsmigrationer och beständig kö.
+- **Konkret leverans:** Kort beslutsnotering med vald väg, avvisat alternativ, observerad komplexitet, avbrottsutfall och konsekvenser för CE-06/CE-09. Ingen full backend, agentintegration, GPU eller betalda anrop.
+- **Acceptanskriterium/verifiering:** Kontrollera omstart efter färdigt steg, två konkurrerande claims och okänt simulerat beställningsutfall. Vald väg ska ha ett auktoritativt stegtillstånd och inget blint återutskick. Motivera med prototypens observationer; fulla produktionsgarantier verifieras senare i CE-06–CE-09.
+- **Stoppvillkor:** R: högst en arbetsdag. Stoppa när beslutskriterierna är besvarade; vid olöst kritisk risk dokumenteras den och beroende implementation pausas. Utvidga inte till en generell ramverksutredning.
+
 ### CE-06 · E2 · Inför databas och beständig jobbclaim
 
 - **Prioritet/status:** P0 · Planerad.
 - **Syfte:** Gör jobb återstartbara.
-- **Beroenden:** CE-05.
+- **Beroenden:** CE-05, CE-10.
 - **Konkret leverans:** Migrationer, StepRun/ProviderRequest/Asset och lease/fencing.
 - **Acceptanskriterium:** Två workers claimar inte samma aktiva steg; gammal worker kan inte skriva över efter leaseövertagande.
 
@@ -107,17 +119,9 @@ Varje rad anger konkret uppgift, syfte, beroenden, leverans och klart-definition
 
 - **Prioritet/status:** P0 · Planerad.
 - **Syfte:** Validera hela datakedjan.
-- **Beroenden:** CE-05, CE-08; Agenter och Workflows.
+- **Beroenden:** CE-05, CE-08, CE-10; Agenter och Workflows.
 - **Konkret leverans:** Steg 0–12 med låsta profiler, validerad payload och dependency-hashar.
 - **Acceptanskriterium:** Fel JSON, okänd scen/referens, underkänd bild och förbrukade attempts stoppar rätt steg; success återanvänds efter omstart.
-
-### CE-10 · E2 · Avgör workflow-/köbibliotek genom liten prototyp
-
-- **Prioritet/status:** P1 · Planerad.
-- **Syfte:** Begränsa egen komplexitet.
-- **Beroenden:** CE-09.
-- **Konkret leverans:** Beslut explicit workflow/LangGraph och eventuell underhållen kö.
-- **Acceptanskriterium:** Samma avbrottsprov, ett auktoritativt stegtillstånd, konkret underhållsmotiv; inga överlappande ramverk utan behov.
 
 ### CE-11 · E3 · Implementera de testade leverantörsadaptrarna
 

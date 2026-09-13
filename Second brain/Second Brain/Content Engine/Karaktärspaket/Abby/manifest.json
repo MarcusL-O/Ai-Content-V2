@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "enabled": false,
   "status": "draft",
   "persona_file": "Paket.md",
@@ -64,13 +64,13 @@
     "../../../Karaktärer/Abby Marlow/Voice.md"
   ],
   "agent_profiles": {
-    "researcher": "researcher/influencer@0.1.0",
-    "planner": "planner/influencer@0.1.0",
-    "writer": "writer/influencer@0.1.0",
-    "director": "director/influencer@0.1.0",
-    "production_planner": "production_planner/influencer@0.1.0",
-    "reviewer": "reviewer/influencer@0.1.0",
-    "packager": "packager/influencer@0.1.0"
+    "researcher": "researcher/influencer@0.1.1",
+    "planner": "planner/influencer@0.1.1",
+    "writer": "writer/influencer@0.1.1",
+    "director": "director/influencer@0.1.1",
+    "production_planner": "production_planner/influencer@0.1.1",
+    "reviewer": "reviewer/influencer@0.1.1",
+    "packager": "packager/influencer@0.1.1"
   },
   "workflow": "influencer_voiceover_v1@0.1.0",
   "production_profile": "vertical_short_v1@0.1.0"
