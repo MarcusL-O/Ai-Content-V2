@@ -40,7 +40,7 @@ Filfördelningen kommer från ComfyUI-guiderna ovan. För Qwen-encodern väljs u
 
 ### Exakt underlag Marcus ska ordna
 
-Följande är föreslagna arbetskopienamn, inte upptäckta filer eller nya krav på att döpa om original. Lämna godkända kopior i en separat lokal katalog utanför Git, exempelvis `~/ContentEngineMedia/abby/ce01/`, och ange dess faktiska sökväg. Originalmapparna ska inte ändras. Vid inventeringen hittades inga bild-/ljudmedia i karaktärsoriginalmapparna; eventuella filer på andra platser behöver pekas ut.
+Följande är föreslagna arbetskopienamn, inte upptäckta filer eller nya krav på att döpa om original. Lämna godkända kopior i en separat lokal katalog utanför Git, exempelvis `~/ContentEngineMedia/abby/ce01/`, och ange dess faktiska sökväg. Originalmapparna ska inte ändras. Vid första inventeringen saknades media. Nu finns fyra granskade Abby-bilder i hennes Base Pictures-katalog enligt bedömningen nedan. De är förslag till referenser, inte automatiskt godkända för aktivering eller uppladdning.
 
 | Arbetskopia | Krav och användning |
 |---|---|
@@ -55,6 +55,25 @@ R: minst cirka 1024 px på långsidan för bilder, ingen kollagebild med flera i
 **Konton:** Marcus behöver ett eget [RunPod-konto](https://console.runpod.io/) med betalning först efter godkänt testtak, och tillgång till sin lokala SSH-nyckel (bara publik nyckel registreras i kontot). [Officiell SSH-guide](https://docs.runpod.io/pods/configuration/use-ssh). Hugging Face-konto/read-token ordnas endast om en vald fil kräver autentisering; publika vikter innebär inte krav på betald HF-inferens. Inget Comfy Cloud-abonnemang, socialt konto, separat medie-API-konto eller containerregister behövs för första interaktiva sessionen. Privat register kan behövas vid senare paketering. Klistra inte in hemligheter i chatt eller dokument.
 
 **Inställningar vid ett senare godkänt starttillfälle:** Pods, on-demand (inte spot/serverless), en GPU enligt tabellen, inga extra repliker, minst 100 GB RAM, föreslaget 30 GB containerdisk + 150 GB volym på `/workspace`. Välj datacenter efter faktisk tillgång inom pristaket. Använd granskad container med stödd NVIDIA/PyTorch-miljö; lås dess digest och ComfyUI-commit före generering. Ange ingen image som “testad” innan den startats. ComfyUI nås via SSH-tunnel till port 8188; exponera inte en oskyddad publik ComfyUI-port. Ingen automatisk påfyllning av kontot. Följ pris, starttid och nedstängning i konsolen; en webbläsarflik som stängs stoppar inte GPU:n.
+
+### Granskning av Abbys befintliga referensbilder – 2026-09-13
+
+Endast Abby ingår i aktuellt arbete. Fyra PNG-filer i `Second brain/Second Brain/Karaktärer/Abby Marlow/Base Pictures/` granskades visuellt. Alla är 1024×1536 px. Bilderna har inte redigerats, flyttats eller laddats upp till någon GPU-tjänst. R: använd frontporträttet som föreslaget visuellt facit, övriga som kompletterande vinklar. Marcus behöver bekräfta valet och ursprunget/användningsrätten före produktion.
+
+| Fil | Visuell bedömning | Föreslagen användning |
+|---|---|---|
+| `68b8efd4-6a9e-4812-85a9-23389a5b290c.png` | Frontporträtt med tydliga ögon, näsa, läppar och hudstruktur. Lugnt ljus, enkel bakgrund och liten perspektivförvrängning. Munnen är lätt öppen | Primär ansiktsreferens för T1. Bra utgångspunkt, ingen anledning att ersätta för fler nästan likadana bilder |
+| `5fcbb270-7d21-4dc5-b5cd-4f7f0db0d88f.png` | Snett framifrån, lätt huvudlutning och leende. Visar kind/näsa i vinkel; inte ett neutralt geometriskt trekvartsporträtt | Kompletterande uttrycks-/vinkelreferens. Räcker för första försiktiga huvudrörelseprovet |
+| `7df97aa1-bef6-413e-8bef-08d372982020.png` | Tydlig sidoprofil som visar näsa, haka och käklinje. Andra ansiktshalvan syns inte | Profilkontroll; inte ensam huvudingång när båda ögonen ska synas i målbilden |
+| `cb209e6e-df8a-4557-9218-b1c99c1f6629.png` | Hela kroppen inklusive skor syns, men kroppen är sidovänd och armar/händer överlappar. Ansiktet upptar mindre bildyta än i porträtten | Komplement för sidovy, kläder och övergripande proportioner. Ersätter inte neutral helkropp framifrån inför T2 |
+
+Min visuella bedömning: hår, ögon, fräknar och ansiktsformer ger en sammanhängande karaktärsdesign. Det är ingen mätning av identitetsstabilitet i genererad video. Leende, vinkel och ljus skiljer bilderna åt; profilbilden visar mer näs-/hakform än frontbilden och bör därför följa med vid granskning. Ingen uppenbar grov ansiktsartefakt hindrar att använda porträtten som pilotkandidater. Händer och fingrar kan inte bedömas tillräckligt i sidobilden eftersom de delvis överlappar. Porträtten har ett stylat uttryck; hur naturligt detta fungerar i rörelse är en del av testet.
+
+**Prioriterad komplettering: en neutral helkroppsbild framifrån.** Hela huvudet och båda fötterna med marginal, kroppen rakt mot kameran, neutral hållning, fötterna något isär och båda händerna separerade och synliga. Enkla träningskläder som i sidobilden eller annan enkel godkänd outfit; inget föremål i händerna. Jämnt mjukt ljus, enfärgad bakgrund, normal perspektivkänsla utan vidvinkel. Bevara ansikte/hår från frontporträttet och proportioner från helkroppsbilden. Föreslaget arbetskopienamn `abby-body-front.png`; inga befintliga filer behöver döpas om. Använd befintliga bilder som referenser vid framtagning, inte enbart namnet Abby i en ny textprompt.
+
+**Kan vänta:** neutralt trekvartsporträtt åt motsatt håll, avslappnad sluten mun och senare ett tydligt leende för uttryckstest. Ingen dansbild, bikini-, hotell- eller stor garderobsserie behövs som förutsättning för första piloten. Scenbilderna ska skapas i bildsteget; referenspaketets uppgift är att definiera karaktären.
+
+**Körberedskap:** T1 kan förberedas med befintliga porträtt. T2:s planerade gångprov bör invänta fronthelkroppen; annars måste det uttryckligen förenklas till en sidovänd rörelse med snävare slutsatser. T3:s nya scenbild måste visa tydliga händer och granskas före video. Inga paket aktiveras genom denna bedömning.
 
 ### Testkort, försök och kvalitetsgrind
 

@@ -10,6 +10,12 @@ Planriktningen är godkänd. Nytt **B6** prioriterar öppna bild-/videovikter i 
 
 R: A100 PCIe 80 GB för första sessionen, max fyra GPU-timmar, sex bild- och sex klippförsök inklusive omtag/återstartsprov, föreslaget totalt kassautflödestak 300 SEK. Ingen GPU, installation, containerbuild eller generering har startats. Inga nya testkostnader har uppstått. Karaktärspaket är fortsatt inaktiva och original/röstunderlag orörda.
 
+## Aktuellt fokus och referensgranskning
+
+Marcus har avgränsat nästa arbete till Abby. Fyra befintliga bilder i hennes Base Pictures har granskats visuellt, alla 1024×1536: frontporträtt, snett porträtt, profil och sidovänd helkropp. Bedömning och exakta filnamn finns i [Utvärdering](Utvärdering.md). Frontporträttet är föreslaget ansiktsfacit; en neutral helkropp framifrån med båda händerna synliga rekommenderas före T2. Fler porträtt är inte blockerande för T1. Godkännande/ursprung och rättigheter är inte fastställda enbart av bildgranskningen.
+
+300 kr har förklarats som föreslaget totalt utgiftstak för ett övervakat försök, inte ett köpt paket eller en garanti om tre färdiga filmer. Inget budgetgodkännande eller hyrtillstånd har lämnats i detta steg.
+
 ## Blockerare före betalt prov
 
 Marcus behöver godkänna pilotbudgeten och bildreferenser med rättighetsunderlag enligt CE-02. Referenslistan i Utvärdering anger framifrån, trekvart, helkropp och arbetskopienamn. Marcus hanterar röstunderlaget själv; det behövs först för voiceover-/helhetsprovet, inte första ljudlösa rörelsetestet. RunPod-konto/betalning och publik SSH-nyckel ordnas av Marcus inför ett uttryckligen godkänt startuppdrag.
@@ -24,4 +30,4 @@ Granska pilotplanen i Utvärdering och hantera **CE-02** samt återstående CE-0
 
 Officiella webbkällor avlästa 2026-09-13; källor och verifieringsgränser står vid respektive påstående i Utvärdering. Kontrollerat: 71 lokala länkar, 27 backlog-ID utan cykler och 7 oförändrade filer i de skyddade originalkatalogerna. Whitespace-kontrollen är utan anmärkning. Ingen uppmätt klippkvalitet, faktisk GPU-kostnad eller runtime-prestanda finns ännu.
 
-Senaste befintliga commit vid start: `96ce10c` (`update info`). Arbetskatalogen var ren vid start; denna planrevision är inte committad. Kontrollera Git-status inför återupptagning.
+Historiskt: teknikplanens startcommit var `96ce10c` (`update info`). Vid denna bildgranskning var arbetskatalogen ren; uppdateringarna av Utvärdering och STATUS är inte committade. Kontrollera Git-status inför återupptagning.
